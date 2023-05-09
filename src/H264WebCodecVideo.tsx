@@ -52,7 +52,7 @@ const H264WebCodecVideo: React.FC<H264WebCodecVideoProps> = ({ frameData, render
     if (worker && frameData) {
       // we need to copy the data buffer as it will be transfered to the background worker.
       // Otherwise we risk exceptions in other parts of studio.
-      const buffer = copyArray(frameData.buffer);
+      const buffer = copyArray(frameData);
       worker.postMessage(new RenderEvent(buffer), [buffer]);
     }
   }, [frameData, worker]);
