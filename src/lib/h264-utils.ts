@@ -424,11 +424,6 @@ export class Bitstream extends RawBitstream {
     return this.deemulated ? this.reemulate(this.buffer) : this.buffer;
   }
 
-  copyBits(from: Bitstream, ptr: number, count: number, to: number) {
-    this.deemulated = from.deemulated;
-    super.copyBits(from, ptr, count, to);
-  }
-
   /**
    * add emulation prevention bytes
    * @param {Uint8Array} buf

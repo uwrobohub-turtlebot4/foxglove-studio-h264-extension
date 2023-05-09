@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 
-import Worker from "./workers/Render.worker.ts";
+import Worker from "./workers/Render.worker";
 import { InitRenderEvent, RenderEvent, WorkerEvent } from "./workers/RenderEvents";
 
 export type H264WebCodecVideoProps = {

@@ -9,6 +9,7 @@ import {
 } from "./RenderEvents";
 import { WebGLRenderer } from "./WebGLRenderer";
 
+
 export type StatusType = "render" | "decode";
 type PartialRecord<K extends string, T> = Partial<Record<K, T>>;
 export type StatusUpdate = PartialRecord<StatusType, string>;
@@ -17,7 +18,14 @@ const scope = self as unknown as Worker;
 
 type HostType = Window & typeof globalThis;
 
-class RenderWorker {
+type WorkerInterface = Worker & {
+  new (): Worker;
+};
+
+export default {} as WorkerInterface;
+
+
+export class RenderWorker {
   constructor(private host: HostType) {}
 
   private renderer: { draw(data: VideoFrame): void } | null = null;
@@ -179,4 +187,3 @@ scope.addEventListener("message", (event: MessageEvent<WorkerEvent>) => {
   }
 });
 
-export {};
