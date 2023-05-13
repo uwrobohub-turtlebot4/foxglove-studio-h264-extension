@@ -1,4 +1,4 @@
-import { StatusUpdate } from "./Render.worker";
+import { StatusUpdate } from "./Render.sworker";
 
 export type WorkerEventType = "init" | "frame" | "status" | "renderDone";
 
